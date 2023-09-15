@@ -21,9 +21,9 @@ class ExpenseItem extends StatelessWidget {
               const Spacer(), // Spacer takes the whole space and pushing the next widget to pushed to right
               Row(
                 children: [
-                  const Icon(Icons.alarm),
+                  Icon(categoryIcons[expense.category]), // since key is of type cathegory in categoryIcons
                   const SizedBox(width: 8,),
-                  Text(expense.date.toString()),
+                  Text(expense.formattedDate),
                 ],
               ),              
               

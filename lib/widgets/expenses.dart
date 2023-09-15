@@ -1,4 +1,4 @@
-import 'package:expense_tracker/expenses_list.dart';
+import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker/models/expense.dart';
 import 'package:flutter/material.dart';
 
@@ -31,3 +31,10 @@ class _ExpensesState extends State<Expenses> {
     );
   }
 }
+
+
+/* NOTES: 
+ * ExpenseList is user defined widget
+ * Since ExpenseList returns a list, the column widget just don't know how to render it and in that case, we need to wrap it with "Expanded" widget
+ * 
+ */

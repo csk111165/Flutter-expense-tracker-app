@@ -14,8 +14,8 @@ class _ExpensesState extends State<Expenses> {
 
   final List<Expense> _registeredExpenses = [
 
-    Expense(title: 'Flutter-Course', amount: 19, date: DateTime.now(), category: Category.work),
-    Expense(title: 'Cinema', amount: 19, date: DateTime.now(), category: Category.leisure),
+    Expense(title: 'Flutter-Course', amount: 19.25, date: DateTime.now(), category: Category.work),
+    Expense(title: 'Cinema', amount: 16.32, date: DateTime.now(), category: Category.leisure),
 
   ];
   @override

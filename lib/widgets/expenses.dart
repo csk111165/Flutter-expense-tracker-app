@@ -24,9 +24,17 @@ class _ExpensesState extends State<Expenses> {
         category: Category.leisure),
   ];
 
+  // to add new expenses
+  void _addExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.add(expense);
+    });
+    
+  }
+
   // function which will be triggerd when the + icon will be pressed
   void _openAddExpenseOverlay() {
-    showModalBottomSheet(context: context, builder: (ctx) => const NewExpense());
+    showModalBottomSheet(context: context, builder: (ctx) =>  NewExpense(onAddExpense: _addExpense));
   }
 
   @override

@@ -13,7 +13,7 @@ var kDarkColorScheme = ColorScheme.fromSeed(
   );
 
 void main() {
-  // allowing the app to work in portraidUp mode only so that 
+  // allowing the app to work in portraidUp mode only so that after change of orientaion it maintains the org configuration
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

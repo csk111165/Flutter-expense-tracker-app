@@ -36,20 +36,30 @@ class _ExpensesState extends State<Expenses> {
     setState(() {
       _registeredExpenses.remove(expense);
     });
-    
   }
 
   // function which will be triggerd when the + icon will be pressed
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
-      // to provide full screen overlay
-      isScrollControlled: true,
-      context: context, 
-      builder: (ctx) =>  NewExpense(onAddExpense: _addExpense));
+        // to provide full screen overlay
+        isScrollControlled: true,
+        context: context,
+        builder: (ctx) => NewExpense(onAddExpense: _addExpense));
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text('No expenses found. Start adding some!'),
+    );
+
+    if(_registeredExpenses.isNotEmpty){
+      mainContent = ExpensesList(
+            expenses: _registeredExpenses,
+            onRemoveExpense: _removeExpense,
+          );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Expense Tracker'),
@@ -58,14 +68,15 @@ class _ExpensesState extends State<Expenses> {
             onPressed: _openAddExpenseOverlay,
             icon: const Icon(Icons.add),
           ),
-        
         ],
       ),
       body: Column(
         children: [
           const Text('The chart'),
           // here we need to wrap the ExpenseList widget with Expanded, as it is a list and Column widget complains that in that case
-          Expanded(child: ExpensesList(expenses: _registeredExpenses, onRemoveExpense: _removeExpense,)),
+          Expanded(
+              child: mainContent,
+              ),
         ],
       ),
     );

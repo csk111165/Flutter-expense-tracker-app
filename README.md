@@ -29,6 +29,6 @@ samples, guidance on mobile development, and a full API reference.
    - `firstDate`: The earliest date that the user can select. In this case, it's set to `firstDate`, which is one year before the current date.
    - `lastDate`: The latest date that the user can select. In this case, it's set to the current date (`now`).
 
-When you call `_presentDatePicker()`, it opens the date picker dialog that allows the user to pick a date within the specified range, which is between one year ago and the current date. The selected date can then be used in your Flutter app as needed.
+#### When you call `_presentDatePicker()`, it opens the date picker dialog that allows the user to pick a date within the specified range, which is between one year ago and the current date. The selected date can then be used in your Flutter app as needed.
 ---
 

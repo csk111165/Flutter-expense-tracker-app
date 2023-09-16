@@ -48,6 +48,7 @@ class _ExpensesState extends State<Expenses> {
           label: 'Undo', 
           onPressed: () {
             setState(() {
+              // expenseIndex is required since we wante to bring back the same expense which uses has tried to delete
               _registeredExpenses.insert(expenseIndex, expense);
             });
           },

@@ -49,6 +49,10 @@ class _NewExpenseState extends State<NewExpense> {
     // if all the values are good, we need to add this expense
     widget.onAddExpense(Expense(title: _titleController.text, amount: enteredAmount, date: _selectedDate!, category: _selectedCategory));
 
+
+    // close the screen of overlay when the new task is addes successfuly
+    Navigator.pop(context);
+
   }
 
   void _presentDatePicker() async {

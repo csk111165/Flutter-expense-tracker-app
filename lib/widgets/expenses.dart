@@ -61,6 +61,8 @@ class _ExpensesState extends State<Expenses> {
   // function which will be triggerd when the + icon will be pressed
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
+        // to make sure it doesn't overlap with camera or any ohter display elements
+        useSafeArea: true,
         // to provide full screen overlay
         isScrollControlled: true,
         context: context,

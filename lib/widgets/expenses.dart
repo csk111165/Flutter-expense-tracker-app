@@ -69,6 +69,10 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    print("what is the width : $width");
+
+
     Widget mainContent = const Center(
       child: Text('No expenses found. Start adding some!'),
     );
@@ -90,7 +94,7 @@ class _ExpensesState extends State<Expenses> {
           ),
         ],
       ),
-      body: Column(
+      body: width < 600 ? Column(
         children: [
            Chart(
             expenses: _registeredExpenses,
@@ -100,6 +104,18 @@ class _ExpensesState extends State<Expenses> {
               child: mainContent,
               ),
         ],
+      ) : Row( children: [
+        // conditionally rendring the Row elements when the width of screen is large
+         Expanded(
+           child: Chart(
+              expenses: _registeredExpenses,
+              ),
+         ),
+          Expanded(
+              child: mainContent,
+              ),
+      ],
+
       ),
     );
   }

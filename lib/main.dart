@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/widgets/expenses.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 
 
 var kColorScheme = ColorScheme.fromSeed(
@@ -14,10 +14,10 @@ var kDarkColorScheme = ColorScheme.fromSeed(
 
 void main() {
   // allowing the app to work in portraidUp mode only so that after change of orientaion it maintains the org configuration
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]).then((fn){
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]).then((fn){
     runApp(
      MaterialApp(
       debugShowCheckedModeBanner: false, // this will hide the debug banner watermark
@@ -67,7 +67,7 @@ void main() {
       home: const Expenses(),
       ),
   );
-  });
+  // });
 
   
 }

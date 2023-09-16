@@ -18,6 +18,34 @@ class _NewExpenseState extends State<NewExpense> {
   DateTime? _selectedDate;
   Category _selectedCategory = Category.leisure;
 
+  // this is for validating the data before submitting the expense..
+
+  void _submitExpenseData() {
+    // it checks if the amount entered can be converted into double or not, tryParse('hello') will return null
+    // tryParse('12.3') will return 12.3
+    final enteredAmount = double.tryParse(_amountController.text); 
+    final amountIsInvalid = (enteredAmount == null || enteredAmount <= 0 ) ? true : false;
+
+    if(_titleController.text.trim().isEmpty || amountIsInvalid || _selectedDate == null) {
+      // show errror message...
+      showDialog(context: context, builder: (ctx) => AlertDialog(
+        title: const Text('Invalid Input'),
+        content: const Text('Please make sure a valid title, amount, date and category was entered!'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(ctx);
+            }, 
+            child: const Text('Okay')
+            ),
+          
+        ],
+      ));
+      // this is inside if block
+      return ;
+    }
+  }
+
   void _presentDatePicker() async {
     // predefined screen/widget provided by flutterS
     final now = DateTime.now();
@@ -122,10 +150,7 @@ class _NewExpenseState extends State<NewExpense> {
                 child: const Text('Cancel'),
               ),
               ElevatedButton(
-                onPressed: () {
-                  print(_titleController.text);
-                  print(_amountController.text);
-                },
+                onPressed: _submitExpenseData,
                 child: const Text('Save Expense'),
               ),
             ],

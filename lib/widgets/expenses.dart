@@ -34,7 +34,11 @@ class _ExpensesState extends State<Expenses> {
 
   // function which will be triggerd when the + icon will be pressed
   void _openAddExpenseOverlay() {
-    showModalBottomSheet(context: context, builder: (ctx) =>  NewExpense(onAddExpense: _addExpense));
+    showModalBottomSheet(
+      // to provide full screen overlay
+      isScrollControlled: true,
+      context: context, 
+      builder: (ctx) =>  NewExpense(onAddExpense: _addExpense));
   }
 
   @override

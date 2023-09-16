@@ -11,27 +11,31 @@ class ExpenseItem extends StatelessWidget {
     return Card(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-        child: Column(children: [
-          Text(expense.title),
-          const SizedBox(height: 4,),
-          Row(
-            children: [
-              // display like $12.23; {expense.amount.toStringAsFixed(2)} is string interpolation
-              Text('\$${expense.amount.toStringAsFixed(2)}'), 
-              const Spacer(), // Spacer takes the whole space and pushing the next widget to pushed to right
-              Row(
-                children: [
-                  Icon(categoryIcons[expense.category]), // since key is of type cathegory in categoryIcons
-                  const SizedBox(width: 8,),
-                  Text(expense.formattedDate),
-                ],
-              ),              
-              
-            ],
-          ),
-        ],
+        child: Column(
+          children: [
+            Text(expense.title),
+            const SizedBox(
+              height: 4,
+            ),
+            Row(
+              children: [
+                // display like $12.23; {expense.amount.toStringAsFixed(2)} is string interpolation
+                Text('\$${expense.amount.toStringAsFixed(2)}'),
+                const Spacer(), // Spacer takes the whole space and pushing the next widget to pushed to right
+                Row(
+                  children: [
+                    Icon(categoryIcons[expense
+                        .category]), // since key is of type cathegory in categoryIcons
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(expense.formattedDate),
+                  ],
+                ),
+              ],
+            ),
+          ],
         ),
-
       ),
     );
   }

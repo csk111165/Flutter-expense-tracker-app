@@ -15,6 +15,10 @@ class ExpensesList extends StatelessWidget {
     return ListView.builder(itemCount: expenses.length, itemBuilder: (context, index) {
       // Dismissible widget allow the functionality of right/left swip to remove the content
       return Dismissible(
+        background: Container(
+          color: Theme.of(context).colorScheme.error.withOpacity(0.5),
+          margin: EdgeInsets.symmetric(horizontal: Theme.of(context).cardTheme.margin!.horizontal,)
+        ),
         // it provided the item that will be removed otherwise it won't know which to remove
         key: ValueKey(expenses[index]),
         onDismissed: (direction) {

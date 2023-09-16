@@ -12,11 +12,10 @@ class ExpenseItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(expense.title),
-            const SizedBox(
-              height: 4,
-            ),
+            Text(expense.title, style: Theme.of(context).textTheme.titleLarge,),
+            const SizedBox(height: 4),
             Row(
               children: [
                 // display like $12.23; {expense.amount.toStringAsFixed(2)} is string interpolation

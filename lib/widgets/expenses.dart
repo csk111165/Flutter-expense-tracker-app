@@ -29,6 +29,13 @@ class _ExpensesState extends State<Expenses> {
     setState(() {
       _registeredExpenses.add(expense);
     });
+  }
+
+  // to remove the expense
+  void _removeExpense(Expense expense) {
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
     
   }
 
@@ -58,7 +65,7 @@ class _ExpensesState extends State<Expenses> {
         children: [
           const Text('The chart'),
           // here we need to wrap the ExpenseList widget with Expanded, as it is a list and Column widget complains that in that case
-          Expanded(child: ExpensesList(expenses: _registeredExpenses)),
+          Expanded(child: ExpensesList(expenses: _registeredExpenses, onRemoveExpense: _removeExpense,)),
         ],
       ),
     );

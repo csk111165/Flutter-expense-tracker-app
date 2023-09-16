@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/widgets/expenses.dart';
+import 'package:flutter/services.dart';
+
 
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
@@ -11,8 +13,12 @@ var kDarkColorScheme = ColorScheme.fromSeed(
   );
 
 void main() {
-
-  runApp(
+  // allowing the app to work in portraidUp mode only so that 
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]).then((fn){
+    runApp(
      MaterialApp(
       debugShowCheckedModeBanner: false, // this will hide the debug banner watermark
       // darktheme
@@ -61,5 +67,8 @@ void main() {
       home: const Expenses(),
       ),
   );
+  });
+
+  
 }
 

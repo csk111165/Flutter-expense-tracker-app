@@ -70,7 +70,6 @@ class _ExpensesState extends State<Expenses> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    print("what is the width : $width");
 
 
     Widget mainContent = const Center(
